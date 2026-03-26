@@ -1,4 +1,4 @@
-
+package src.Shared;
 public class ReplicatorCompiler {
     String ID;
     String lastPivot;

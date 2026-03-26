@@ -1,3 +1,5 @@
+package src.Server;
+
 import java.util.*;
 import javax.swing.text.Position;
 import java.io.IOException;
@@ -5,19 +7,20 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.*;
 
-
-
 public class NetworkServer<T> extends Thread {
     public static ServerSocket UNIVERSAL_SOCKET;
 
     public static ArrayList<PositionReplication> REPLICATING_CLIENTS;
     public static ArrayList<InputManager> INPUT_MANAGERS;
+    public static ArrayList<StateManager> STATE_MANAGERS;
 
     public static void Connect(int port, String type) throws IOException {
         Thread connectionThread = new Thread(() -> {
             try (ServerSocket serverSocket = new ServerSocket(port)) {
                 while (true) {
                     Socket newPlayer = serverSocket.accept();
+                    String playerAddress = newPlayer.getInetAddress();
+                     // add this player to the main player table if the address is not found
 
                     if (type.equals("PositionReplication")) {
                        PositionReplication playerClient = new PositionReplication(newPlayer);
@@ -47,6 +50,7 @@ public class NetworkServer<T> extends Thread {
 
             Connect(8080, "PositionReplication");
             Connect(9090, "InputManager");
+            ConnectPort(65525, "StateManager");
         } catch (Exception e) {
             // TODO: handle exception
         }
@@ -56,6 +60,14 @@ public class NetworkServer<T> extends Thread {
 // replicates client pivot to every other client
 // amen amen amen amen amen amen amen amen amen
 
+// replicates states to the client, the client cant tell the server states
+class StateManager extends Thread {
+    ObjectOutputStream outputStream;
+    
+    public StateManager() {
+
+    }
+}
 
 class PositionReplication extends Thread {
     ObjectInputStream inputStream;
