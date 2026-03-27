@@ -1,0 +1,127 @@
+import java.util.*;
+public class Moveset {
+    //Things to write in other classes:
+    //Keys pressed activate the different moves
+    ////For crouch() method is repeatedly called as long as their respective keys are being pressed
+    //For left() and right() method is repeatedly called as long as their respective keys are being pressed
+    //Each time that the method is called in this way the inputed variable increases by 1 and resets after 6
+    //void setXSpeed(int), void setYSpeed(int), int getXSpeed(), int getYSpeed()
+    //int getX(), int getY()
+    //void setImage(String)
+    //static int movementSpeed, static int jumpSpeed, static int mspf, static int floorLevel
+    //When player hitbox isJumping == false and an action is not being executed player.setImage("stand")
+    //Also reset hitboxes, x speed and y speed
+    //void setJumping(), boolean isJumping()
+    //void setShielding(), boolean isShielding()
+    //create a jab, kick and shield breaker hitbox that moves when player moves
+    //boolean isExecutingAction(), void setExecutingAction()
+
+public Moveset(Player player, Player opponent){
+Player player = player;
+Player opponent = opponent;
+}
+
+    public void jump(){
+        player.setExecutingAction();
+        player.setImage("jump1");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setImage("jump2");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setyspeed(jumpSpeed);
+        player.setJumping();
+        player.setImage("jump3");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setImage("jump4");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setImage("jump5");
+        player.setExecutingAction();
+    }
+//both left and right should be repeatedly called as long as the correct key is being pressed
+    public void left(int i) {
+        player.setExecutingAction();
+        player.setImage("left" + i);
+        player.setXSpeed(-1 * movementSpeed);
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setExecutingAction();
+    }
+    public void right(int i) {
+        player.setExecutingAction();
+        player.setImage("right" + i);
+        player.setXSpeed(movementSpeed);
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setExecutingAction();
+    }
+    public void crouch() {
+        player.setExecutingAction();
+        player.setImage("crouch");
+        //To implement: change player hitbox here
+    }
+    //also stop set executing action after s/ crouch button is no longer pressed
+    public void shield() {
+        player.setExecutingAction();
+        player.setImage("shield1");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setImage("shield2");
+        player.setShielding();
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setImage("shield3");
+        TimeUnit.MILLISECONDS.sleep(mspf*3);
+        player.setImage("shield4");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setShielding();
+        player.setImage("shield5");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setExecutingAction();
+    }
+    public void shieldBreak() {
+        player.setExecutingAction();
+        player.setImage("shieldBreak1");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setImage("shieldBreak2");
+        if(/*shield breaker hitbox intersects opponent*/&& opponent.isShielding())
+            opponent.stun();
+        TimeUnit.MILISECONDS.sleep(mspf);
+        player.setImage("shieldBreak1");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setImage("shieldBreak2");
+        TimeUnit.MILISECONDS.sleep(mspf);
+        player.setExecutingAction();
+    }
+    public void jab() {
+        player.setExecutingAction();
+        player.setImage("jab1");
+        TimeUnit.MILISECONDS.sleep(mspf);
+        player.setImage("jab2");
+        if(/*kick hitbox intersects opponent hitbox*/)
+            opponent.setHealth(getHealth()-500);
+        TimeUnit.MILISECONDS.sleep(mspf);
+        player.setExecutingAction();
+    }
+    public void kick() {
+        player.setExecutingAction();
+        player.setImage("kick1");
+        TimeUnit.MILISECONDS.sleep(mspf);
+        player.setImage("kick2");
+        TimeUnit.MILISECONDS.sleep(mspf);
+        player.setImage("kick3");
+        TimeUnit.MILISECONDS.sleep(mspf);
+        player.setImage("kick4");
+        if(/*kick hitbox intersects opponent hitbox*/)
+            opponent.setHealth(getHealth()-1200);
+        TimeUnit.MILISECONDS.sleep(mspf);
+        player.setExecutingAction();
+    }
+    public void shoot() {
+        player.setExecutingAction();
+        player.setImage("shoot1");
+        TimeUnit.MILISECONDS.sleep(mspf);
+        player.setImage("shoot2");
+        TimeUnit.MILISECONDS.sleep(mspf);
+        player.createProjectile();
+        player.setImage("shoot3");
+        TimeUnit.MILISECONDS.sleep(mspf);
+        player.setImage("shoot4");
+        TimeUnit.MILISECONDS.sleep(mspf);
+        player.setExecutingAction();
+    }
+    public void stun() {
