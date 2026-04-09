@@ -16,6 +16,9 @@ public class Moveset {
     //create a jab, kick and shield breaker hitbox that moves when player moves
     //boolean isExecutingAction(), void setExecutingAction()
 
+private Player player;
+private Player opponent;
+
 public Moveset(Player player, Player opponent){
 Player player = player;
 Player opponent = opponent;
