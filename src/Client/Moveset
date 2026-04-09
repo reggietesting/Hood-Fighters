@@ -128,3 +128,18 @@ Player opponent = opponent;
         player.setExecutingAction();
     }
     public void stun() {
+        player.setExecutingAction();
+        player.setImage("stun1");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setImage("stun2");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setImage("stun1");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setImage("stun2");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setImage("stun1");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setImage("stun2");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setExecutingAction();
+    }
