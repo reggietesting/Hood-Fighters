@@ -59,7 +59,7 @@ Player opponent = opponent;
         player.setImage("crouch");
         //To implement: change player hitbox here
     }
-    //also stop set executing action after s/ crouch button is no longer pressed
+    //also stop set executing action after crouch button is no longer pressed
     public void shield() {
         player.setExecutingAction();
         player.setImage("shield1");
