@@ -26,17 +26,20 @@ Player opponent = opponent;
 
     public void jump(){
         player.setExecutingAction();
-        player.setImage("jump1");
+        player.setImage("crouch");
         TimeUnit.MILLISECONDS.sleep(mspf);
-        player.setImage("jump2");
+        player.setImage("jump1");
         TimeUnit.MILLISECONDS.sleep(mspf);
         player.setyspeed(jumpSpeed);
         player.setJumping();
+        player.setImage("jump2");
+        TimeUnit.MILLISECONDS.sleep(mspf);
         player.setImage("jump3");
         TimeUnit.MILLISECONDS.sleep(mspf);
-        player.setImage("jump4");
+        player.setImage("jump2");
         TimeUnit.MILLISECONDS.sleep(mspf);
-        player.setImage("jump5");
+        player.setImage("jump1);
+        player.setImage("crouch");
         player.setExecutingAction();
     }
 //both left and right should be repeatedly called as long as the correct key is being pressed
