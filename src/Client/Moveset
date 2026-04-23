@@ -136,13 +136,13 @@ Player opponent = opponent;
         TimeUnit.MILLISECONDS.sleep(mspf);
         player.setImage("stun2");
         TimeUnit.MILLISECONDS.sleep(mspf);
-        player.setImage("stun1");
-        TimeUnit.MILLISECONDS.sleep(mspf);
-        player.setImage("stun2");
+        player.setImage("stun3");
         TimeUnit.MILLISECONDS.sleep(mspf);
         player.setImage("stun1");
         TimeUnit.MILLISECONDS.sleep(mspf);
         player.setImage("stun2");
+        TimeUnit.MILLISECONDS.sleep(mspf);
+        player.setImage("stun3");
         TimeUnit.MILLISECONDS.sleep(mspf);
         player.setExecutingAction();
     }
