@@ -87,9 +87,9 @@ Player opponent = opponent;
         if(/*shield breaker hitbox intersects opponent*/&& opponent.isShielding())
             opponent.stun();
         TimeUnit.MILISECONDS.sleep(mspf);
-        player.setImage("shieldBreak1");
+        player.setImage("shieldBreak3");
         TimeUnit.MILLISECONDS.sleep(mspf);
-        player.setImage("shieldBreak2");
+        player.setImage("shieldBreak4");
         TimeUnit.MILISECONDS.sleep(mspf);
         player.setExecutingAction();
     }
